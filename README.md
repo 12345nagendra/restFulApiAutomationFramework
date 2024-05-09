@@ -21,7 +21,8 @@ This repository contains a Java-based RESTful API automation framework implement
 1. Clone the repository to your local machine:
    ```bash
    git clone https://github.com/12345nagendra/restFulApiAutomationFramework.git
-2. Install JDK 11 or higher if not already installed.
+2. Checkout to master branch.
+3. Install JDK 11 or higher if not already installed.
 3. Install Maven if not already installed.
 4. Install TestNG if not already installed (usually comes with popular IDEs like IntelliJ IDEA or Eclipse).
 5. Install Allure Command Line Interface (CLI) for generating test reports

@@ -30,12 +30,6 @@ public class RestfulApiCasesTest extends Commons {
         //Add a new product and validate the api response
         Response responseOfAddProduct = ProductApis.postAddObject(addProductRequestPayload);
         System.out.println("this is after the compilation");
-        System.out.println("this is after the compilation");
-        responseOfAddProduct.then().body("name",equalTo(""));
-        String id = responseOfAddProduct.body().jsonPath().get("id");
-        System.out.println("this is after the compilation");
-        LoggerFactory.getLogger(LogType.ALLURE_REPORT).log("The id is " +id);
-        System.out.println("The id is  " +id);
         assertStatusCode(responseOfAddProduct.getStatusCode(), StatusCode.CODE_200);
         AddObject addProductResponse = responseOfAddProduct.as(AddObject.class);
         assertAdditionOfProduct(responseOfAddProduct.as(AddObject.class), addProductRequestPayload);

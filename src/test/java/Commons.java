@@ -44,7 +44,7 @@ public class Commons implements ITest {
 
     @BeforeMethod(description = "Setting test Name into the allure report")
     public void BeforeMethod(Method method, Object[] testData, ITestContext ctx) {
-        if (testData.length > 0) {
+        if (testData.length > 0 && testData[0] != null) {
             testName.set(method.getName() + ":" + testData[0]);
             ctx.setAttribute("testName", testName.get());
         } else

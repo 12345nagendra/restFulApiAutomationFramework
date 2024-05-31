@@ -1,5 +1,6 @@
 package test.java.apiTestCases;
 
+import io.qameta.allure.Description;
 import io.qameta.allure.Step;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.response.Response;
@@ -7,18 +8,34 @@ import main.java.api.applicationApi.ProductApis;
 import main.java.enums.StatusCode;
 import main.java.pojo.AddObject;
 import main.java.pojo.Error;
+import main.java.utils.listners.ListenerTest;
+import main.java.utils.listners.RetryListenerClass;
+import main.java.utils.logUtility.LogType;
+import main.java.utils.logUtility.Logger;
+import main.java.utils.logUtility.LoggerFactory;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import test.java.Commons;
 import test.java.resources.dataProviders.RestfulApiCasesData;
 
 import java.util.List;
 
-public class RestfulApiCases extends Commons {
-    @Test(description = "Posting the object", dataProvider = "RequestPayloadsForAddObjects", dataProviderClass = RestfulApiCasesData.class)
+import static org.hamcrest.Matchers.equalTo;
+
+public class RestfulApiCasesTest extends Commons {
+    @Test(dataProvider = "RequestPayloadsForAddObjects", dataProviderClass = RestfulApiCasesData.class)
+    @Description("description = Posting the object")
     public void testcase1(AddObject addProductRequestPayload) {
         //Add a new product and validate the api response
         Response responseOfAddProduct = ProductApis.postAddObject(addProductRequestPayload);
+        System.out.println("this is after the compilation");
+        System.out.println("this is after the compilation");
+        responseOfAddProduct.then().body("name",equalTo(""));
+        String id = responseOfAddProduct.body().jsonPath().get("id");
+        System.out.println("this is after the compilation");
+        LoggerFactory.getLogger(LogType.ALLURE_REPORT).log("The id is " +id);
+        System.out.println("The id is  " +id);
         assertStatusCode(responseOfAddProduct.getStatusCode(), StatusCode.CODE_200);
         AddObject addProductResponse = responseOfAddProduct.as(AddObject.class);
         assertAdditionOfProduct(responseOfAddProduct.as(AddObject.class), addProductRequestPayload);

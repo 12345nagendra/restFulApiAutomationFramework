@@ -1,6 +1,7 @@
 package main.java.api;
 
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 
 import java.util.List;
 
@@ -10,8 +11,8 @@ import static main.java.api.SpecBuilder.getResponseSpec;
 
 
 public class NetworkClientV2 {
-    public static Response sendPOST(Object requestBody) {
-        return given(getRequestSpec())
+    public static Response sendPOST(RequestSpecification requestSpecification, Object requestBody) {
+        return given(requestSpecification)
                 .body(requestBody)
                 .when()
                 .post()

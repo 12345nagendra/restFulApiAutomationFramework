@@ -1,13 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="API Automation Suite">
-    <listeners>
-        <listener class-name="main.java.utils.listners.RetryListenerClass"/>
-        <listener class-name="main.java.utils.listners.ListenerTest"/>
-    </listeners>
-    <test name="RestFulAPIDev Tests" parallel="methods" group-by-instances="true">
-        <classes>
-            <class name="test.java.apiTestCases.RestfulApiCases"/>
-        </classes>
-    </test>
-</suite>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/nagendra.jha/restfulApiFramework"><classes><class name="test.java.apiTestCases.RestfulApiCasesTest"><methods><include name="testcase1"/></methods></class></classes></test></suite>

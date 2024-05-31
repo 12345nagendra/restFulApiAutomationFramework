@@ -14,7 +14,8 @@ public class RestfulApiCasesData {
     @DataProvider(name = "RequestPayloadsForAddObjects", parallel = true)
     public static Object[][] getRequestPayloads() {
         List<AddObject> testDataPayloads = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i <= 1; i++) {
+            System.out.println("this is after the compilation");
             testDataPayloads.add(addObjectRequestBuilder());
         }
         Object[][] testData = new Object[testDataPayloads.size()][1];

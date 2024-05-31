@@ -1,9 +1,15 @@
 package main.java.utils;
 
 
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.InputStream;
 import java.time.Year;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class CommonUtility {
     public static int generateRandomYear(int min) {
@@ -54,4 +60,14 @@ public class CommonUtility {
         InputStream input = classLoader.getResourceAsStream(filePath);
         return input;
     }
+
+    public static void readCSV(String filePath) throws FileNotFoundException {
+        BufferedReader br = new BufferedReader(new FileReader(filePath));
+        br.lines().skip(1).map(line -> {
+            line.split(" ");
+            return new ArrayList();
+        }).collect(Collectors.toList());
+    }
+
+
 }

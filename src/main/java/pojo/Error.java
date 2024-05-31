@@ -15,4 +15,9 @@ import lombok.Setter;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Error {
     String error;
+
+    @Override
+    public String toString() {
+        return error;
+    }
 }

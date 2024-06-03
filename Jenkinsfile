@@ -9,10 +9,10 @@ pipeline {
                 script {
                     def scmChanges = checkout scm: [
                         $class: 'GitSCM',
-                        branches: [[name: '*/main']], // Adjust branch name as needed
+                        branches: [[name: '*/master']], // Adjust branch name as needed
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [[$class: 'CleanCheckout']],
-                        userRemoteConfigs: [[url: 'https://your-git-repo-url.git']]
+                        userRemoteConfigs: [[url: 'https://github.com/12345nagendra/restFulApiAutomationFramework.git']]
                     ]
 
                     if (scmChanges.empty) {

@@ -1,13 +1,16 @@
 package main.java;
 
+import main.java.utils.excelUtility.ExcelUtility;
+
 import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        int [] arr = {1,2,2,4};
-        int [] arr2 = getTheProduct(arr);
-        System.out.println(Arrays.toString(arr2));
+//        System.out.println("Hello world!");
+//        int [] arr = {1,2,2,4};
+//        int [] arr2 = getTheProduct(arr);
+//        System.out.println(Arrays.toString(arr2));
+        ExcelUtility.readExcel();
     }
 
     private static int[] getTheProduct(int[] arr) {

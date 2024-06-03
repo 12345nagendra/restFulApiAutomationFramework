@@ -2,8 +2,13 @@ package test.java.apiTestCases;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Step;
+import io.qameta.allure.restassured.AllureRestAssured;
+import io.restassured.RestAssured;
+import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.common.mapper.TypeRef;
+import io.restassured.http.ContentType;
 import io.restassured.response.Response;
+import main.java.api.SpecBuilder;
 import main.java.api.applicationApi.ProductApis;
 import main.java.enums.StatusCode;
 import main.java.pojo.AddObject;
@@ -21,6 +26,7 @@ import test.java.resources.dataProviders.RestfulApiCasesData;
 
 import java.util.List;
 
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
 import static org.hamcrest.Matchers.equalTo;
 
 public class RestfulApiCasesTest extends Commons {
